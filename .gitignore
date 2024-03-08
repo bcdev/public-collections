@@ -5,6 +5,7 @@
 /.settings/
 /.project
 /.pydevproject
+/.idea/
 _tmp
 _output
 .env

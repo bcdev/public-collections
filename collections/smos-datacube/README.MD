@@ -11,8 +11,8 @@ from the SMOS data archive `s3://EODATA/SMOS` hosted on
 
 ## Spatial coverage and resolution
 
-The SMOS data is provided globally using a geographic projection
-(`EPSG:4326` aka WGS84, World Geodetic System 1984). 
+The SMOS data is provided globally or for an area of interest using a 
+geographic projection (`EPSG:4326` aka WGS84, World Geodetic System 1984). 
 
 Users can choose from five spatial resolutions by specifying a resolution 
 level ranging from zero to four. Zero refers to a resolution of 
@@ -36,12 +36,14 @@ Currently, the provided time range must not exceed 400 days.
 
 ## Service parameters
 
-| Name         | Type    | Value range                                |
-|--------------|---------|--------------------------------------------|
-| product_type | string  | "SMOS-L2C-SM" or "SMOS-L2C-OS"             |
-| time_range   | string  | "YYYY-MM-DD/YYYY-MM-DD"                    |
-| agg_interval | string  | "none", "1D", "2D", "4D", defaults to "1D" |
-| res_level    | integer | 0 to 4, defaults to 0                      |
+| Name         | Type    | Value range                                                                     |
+|--------------|---------|---------------------------------------------------------------------------------|
+| product_type | string  | "SMOS-L2C-SM" or "SMOS-L2C-OS"                                                  |
+| time_range   | string  | "YYYY-MM-DD/YYYY-MM-DD"                                                         |
+| agg_interval | string  | "none", "1D", "2D", "4D", defaults to "1D"                                      |
+| aoi          | string  | Area of interest as WKT with coordinates in degree, defaults to global coverage |
+|              |         | defaults to global coverage                                                     |
+| res_level    | integer | 0 to 4, defaults to 0                                                           |
 
 ## Service output
 
@@ -61,6 +63,5 @@ The datacube is provided as a
 
 ## Pricing
 
-- The price depends solely on the number of data days _N_ included in the data 
-  cube. It is roughly _22N / log(29N)_ EUR. 
-  For each data day, there are approximately 29 SMOS input files to be processed. 
+- The price depends on the number of data days included in the data cube 
+  and the area of interest. 
